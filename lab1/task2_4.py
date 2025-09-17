@@ -19,4 +19,3 @@ def odd_word_chars_cnt(text: str) -> str:
     return cnt
 
 
-
