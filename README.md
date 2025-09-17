@@ -1,0 +1,2 @@
+# interpreted_programming_languages_labs
+Лабы по питончику
