@@ -20,11 +20,11 @@ def sort_lines_by_char_freq_diff(text: str) -> list[str]:
 
 
 def app():
-    choise = input("Выберите задачу 11-14: ")
+    choise = int(input("Выберите задачу 11-14: "))
     match choise:
         #3
         case 11:
-            sort_lines_by_char_freq_diff(input())
+            sort_lines_by_char_freq_diff(input("Введите текст: "))
         #5
         case 12:
             pass
