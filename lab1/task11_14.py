@@ -1,4 +1,5 @@
 import string
+from collections import Counter
 
 
 def sort_lines_by_char_freq_diff(text: str) -> list[str]:
@@ -57,24 +58,49 @@ def sort_by_vc_cv_diff(text: str) -> list[str]:
     return sorted(lines, key=vc_cv_diff)
 
 
+def sort_by_squared_div_char_freq(text: str) -> list[str]:
+    lines = text.splitlines()
+    if not lines:
+        return []
+    
+    global_counter = Counter(text.replace("\n", ""))
+    most_common_char, global_count = global_counter.most_common(1)[0]
+    total_chars = sum(global_counter.values())
+    
+    global_freq = global_count / total_chars
+    
+    def squared_deviation(line: str) -> float:
+        if not line:
+            return global_freq**2
+        count = line.count(most_common_char)
+        freq = count / len(line)
+        return (freq - global_freq) ** 2
+    
+    return sorted(lines, key=squared_deviation)
 
 
-
-def app():
-    choise = int(input("Выберите задачу 11-14: "))
+def app(choise: int) -> None:
+    MESSAGE = "Введите текст: "
     match choise:
         #3
         case 11:
-            sort_lines_by_char_freq_diff(input("Введите текст: "))
+            sort_lines_by_char_freq_diff(input(f"{MESSAGE}"))
         #5
         case 12:
-            sort_lines_by_squared_deviation(input("Введите текст: "))
+            sort_lines_by_squared_deviation(input(f"{MESSAGE}"))
         #7
         case 13:
-            pass
+            sort_by_vc_cv_diff(input(f"{MESSAGE}"))
         #12
         case 14:
-            pass
+            sort_by_squared_div_char_freq(input(f"{MESSAGE}"))
+
 
 if __name__ == '__main__':
-    app()
+    text = """aaaab
+        ababa
+        bbbb
+        aaabbb
+        xyz"""
+    userChoise = int(input("Выберите задачу 11-14: "))
+    app(userChoise)
