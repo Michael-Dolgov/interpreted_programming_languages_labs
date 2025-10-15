@@ -24,7 +24,7 @@ def odd_word_chars_cnt(text: str) -> str:
     cnt = 0
     words = text.split(' ')
     for word in words:
-        if len(word)%2==1:
+        if len(word)%2==0:
             cnt += 1
     return cnt
 

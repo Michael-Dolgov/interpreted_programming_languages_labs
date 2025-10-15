@@ -97,10 +97,5 @@ def app(choise: int) -> None:
 
 
 if __name__ == '__main__':
-    text = """aaaab
-        ababa
-        bbbb
-        aaabbb
-        xyz"""
     userChoise = int(input("Выберите задачу 11-14: "))
     app(userChoise)
