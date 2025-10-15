@@ -37,7 +37,7 @@ class Triangle(EuclidFigure):
     def __init__(self,
                  dot1: Tuple[float, float],
                  dot2: Tuple[float, float],
-                 dot3: Tuple[float, float]):
+                 dot3: Tuple[float, float]) -> None:
         self.__dots = [self.Point(*dot1), self.Point(*dot2), self.Point(*dot3)]
 
     def move(self, dx: float, dy: float) -> None:

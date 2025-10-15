@@ -1,0 +1,1 @@
+print("Figures has been loaded")
